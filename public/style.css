@@ -1,0 +1,149 @@
+:root {
+    --bg-color: #000000;
+    --metal-light: #ffffff;
+    --metal-mid: #d1d9e6;
+    --metal-dark: #a3b1c6;
+    --screen-bg: #0b0b0b;
+    --pixel-off: #1a1a1a;
+    
+    /* Boje */
+    --color-low: #ff3b30;
+    --color-mid: #ffcc00;
+    --color-high: #4cd964;
+    --text-gray: #7d8fa9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    font-family: 'Share Tech Mono', monospace;
+    color: #555;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* --- NOVI GORNJI PRIKAZ --- */
+.top-display {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#percentage-display {
+    font-size: 5rem; /* Veliki naslov */
+    line-height: 1;
+    color: var(--text-gray); /* JS će ovo mijenjati */
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.8), -1px -1px 0 rgba(0,0,0,0.1);
+    transition: color 0.3s ease;
+}
+
+.voltage-info {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-gray);
+    opacity: 0.7;
+}
+
+/* --- DIZAJN BATERIJE --- */
+.battery-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(10px 15px 25px rgba(163, 177, 198, 0.7));
+    margin-bottom: 30px;
+}
+
+/* Metalno tijelo */
+.battery-body-metal {
+    width: 340px;
+    height: 160px;
+    background: linear-gradient(to bottom, 
+        var(--metal-light) 0%, 
+        #e6e6e6 20%, 
+        var(--metal-mid) 50%, 
+        var(--metal-dark) 100%);
+    border-radius: 14px;
+    padding: 12px; 
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 
+        inset 1px 1px 2px rgba(255,255,255,1),
+        inset -2px -2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vrh baterije */
+.battery-cap {
+    width: 22px;
+    height: 70px;
+    background: linear-gradient(to bottom, #d1d9e6, #98aabf, #d1d9e6);
+    border-radius: 0 8px 8px 0;
+    box-shadow: inset 1px 0 3px rgba(0,0,0,0.2);
+    margin-left: -2px;
+    z-index: -1;
+}
+
+/* Ekran */
+.battery-screen {
+    width: 100%;
+    height: 100%;
+    background-color: var(--screen-bg);
+    border-radius: 6px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+    padding: 6px;
+    position: relative;
+}
+
+/* Mreža piksela */
+.pixel-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 stupaca */
+    grid-template-rows: repeat(5, 1fr);    /* 5 redova */
+    gap: 4px;
+    width: 100%;
+    height: 100%; /* Sada zauzima cijeli ekran */
+}
+
+.pixel {
+    background-color: var(--pixel-off);
+    border-radius: 2px;
+    transition: background-color 0.1s, box-shadow 0.1s;
+}
+
+.pixel.active {
+    box-shadow: 0 0 8px currentColor;
+}
+
+.footer-status {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 450px) {
+    .battery-body-metal {
+        width: 280px;
+        height: 130px;
+    }
+    #percentage-display {
+        font-size: 3.5rem;
+    }
+}

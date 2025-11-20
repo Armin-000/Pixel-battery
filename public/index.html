@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Pixel Battery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div class="top-display">
+            <h1 id="percentage-display">0%</h1>
+            <div class="voltage-info">VOLTAGE: 4.2V // STATUS: CHARGING</div>
+        </div>
+
+        <div class="battery-shell">
+            <div class="battery-body-metal">
+                <div class="battery-screen">
+                    <div class="pixel-grid" id="pixel-grid"></div>
+                </div>
+            </div>
+            <div class="battery-cap"></div>
+        </div>
+
+        <div class="footer-status" id="status-text">Initializing power sequence...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
